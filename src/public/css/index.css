@@ -1,0 +1,90 @@
+.div_header_btn{
+    display: flex;
+    justify-content: flex-end;
+    align-items: center;
+}
+
+.header_btn{
+    border: none;
+    background-color: white;
+    font-weight: bold;
+    font-size: 18px;
+    margin-left: 20px;
+}
+
+h2 {
+    text-align: center;
+    font-weight: bold;
+}
+
+.grid{
+    display: grid;
+    grid-template-columns: 47% 6% 47%;
+    grid-template-rows: 45% 10% 45%;
+    margin: 30px auto;
+    width: 70%;
+    height: 70%;
+}
+
+.form_work_start{
+    grid-column: 1/2;
+    grid-row: 1/2;
+}
+
+.work_start_btn{
+    width: 100%;
+    height: 100%;
+    background-color: white;
+    border: none;
+    text-align: center;
+    font-size: 24px;
+    font-weight: bold;
+}
+
+.form_work_end {
+    grid-column: 3/4;
+    grid-row: 1/2;
+    background-color: white;
+}
+
+.work_end_btn {
+    width: 100%;
+    height: 100%;
+    background-color: white;
+    border: none;
+    text-align: center;
+    font-size: 24px;
+    font-weight: bold;
+}
+
+.form_break_start {
+    grid-column: 1/2;
+    grid-row: 3/4;
+    background-color: white;
+}
+
+.break_start_btn {
+    width: 100%;
+    height: 100%;
+    background-color: white;
+    border: none;
+    text-align: center;
+    font-size: 24px;
+    font-weight: bold;
+}
+
+.form_break_end {
+    grid-column: 3/4;
+    grid-row: 3/4;
+    background-color: white;
+}
+
+.break_end_btn {
+    width: 100%;
+    height: 100%;
+    background-color: white;
+    border: none;
+    text-align: center;
+    font-size: 24px;
+    font-weight: bold;
+}

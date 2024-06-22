@@ -1,0 +1,22 @@
+header{
+    padding:10px 30px;
+}
+
+.div_header{
+    width: 100%;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+main{
+    height: 80vh;
+    padding-top: 50px;
+    padding-bottom: 100px;
+    background-color: rgba(242, 242, 242, 1);
+}
+
+.co_name{
+    text-align: center;
+    font-weight: bold;
+}
