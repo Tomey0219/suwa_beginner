@@ -7,12 +7,13 @@ use App\Http\Controllers\RegisteredUserController;
 use Laravel\Fortify\RoutePath;
 use App\Http\Controllers\AttendanceController;
 use App\Http\Controllers\BreakController;
+use Laravel\Fortify\Http\Controllers\EmailVerificationNotificationController;
+use Laravel\Fortify\Http\Controllers\EmailVerificationPromptController;
+use Laravel\Fortify\Http\Controllers\VerifyEmailController;
 
 // use Laravel\Fortify\Http\Controllers\ConfirmablePasswordController;
 // use Laravel\Fortify\Http\Controllers\ConfirmedPasswordStatusController;
 // use Laravel\Fortify\Http\Controllers\ConfirmedTwoFactorAuthenticationController;
-// use Laravel\Fortify\Http\Controllers\EmailVerificationNotificationController;
-// use Laravel\Fortify\Http\Controllers\EmailVerificationPromptController;
 // use Laravel\Fortify\Http\Controllers\NewPasswordController;
 // use Laravel\Fortify\Http\Controllers\PasswordController;
 // use Laravel\Fortify\Http\Controllers\PasswordResetLinkController;
@@ -22,9 +23,8 @@ use App\Http\Controllers\BreakController;
 // use Laravel\Fortify\Http\Controllers\TwoFactorAuthenticationController;
 // use Laravel\Fortify\Http\Controllers\TwoFactorQrCodeController;
 // use Laravel\Fortify\Http\Controllers\TwoFactorSecretKeyController;
-// use Laravel\Fortify\Http\Controllers\VerifyEmailController;
 
-Route::middleware('auth')->group(function () {
+Route::middleware('verified')->group(function () {
     Route::get('/', [AttendanceController::class, 'attInpDisp']);
 
     Route::post('/workstart', [AttendanceController::class, 'workStart']);
@@ -38,6 +38,12 @@ Route::middleware('auth')->group(function () {
     Route::get('/attendance', [AttendanceController::class, 'attTblDisp']);
 
     Route::post('/attendance', [AttendanceController::class, 'attTblDisp']);
+
+    Route::get('/alluser', [AttendanceController::class, 'allUserDisp']);
+
+    Route::get('/eachuser', [AttendanceController::class, 'eachUserDisp']);
+
+    Route::post('/eachuser', [AttendanceController::class, 'eachUserDisp']);
 });
 
 
@@ -75,6 +81,23 @@ Route::group(['middleware' => config('fortify.middleware', ['web'])], function (
 
         Route::post(RoutePath::for('register', '/register'), [RegisteredUserController::class, 'store'])
             ->middleware(['guest:'.config('fortify.guard')]);
+    }
+
+    // Email Verification...
+    if (Features::enabled(Features::emailVerification())) {
+        if ($enableViews) {
+            Route::get(RoutePath::for('verification.notice', '/email/verify'), [EmailVerificationPromptController::class, '__invoke'])
+                ->middleware([config('fortify.auth_middleware', 'auth').':'.config('fortify.guard')])
+                ->name('verification.notice');
+        }
+
+        Route::get(RoutePath::for('verification.verify', '/email/verify/{id}/{hash}'), [VerifyEmailController::class, '__invoke'])
+            ->middleware([config('fortify.auth_middleware', 'auth').':'.config('fortify.guard'), 'signed', 'throttle:'.$verificationLimiter])
+            ->name('verification.verify');
+
+        Route::post(RoutePath::for('verification.send', '/email/verification-notification'), [EmailVerificationNotificationController::class, 'store'])
+            ->middleware([config('fortify.auth_middleware', 'auth').':'.config('fortify.guard'), 'throttle:'.$verificationLimiter])
+            ->name('verification.send');
     }
 
 

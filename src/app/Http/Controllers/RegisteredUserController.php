@@ -10,6 +10,7 @@ use Illuminate\Support\Str;
 use Laravel\Fortify\Contracts\CreatesNewUsers;
 // use Laravel\Fortify\Contracts\RegisterResponse;
 use Laravel\Fortify\Contracts\RegisterViewResponse;
+use Laravel\Fortify\Contracts\VerifyEmailViewResponse;
 use Laravel\Fortify\Fortify;
 use App\Http\Responses\RegisterResponse;
 use App\Http\Requests\RegisterRequest;
@@ -53,7 +54,7 @@ class RegisteredUserController extends Controller
      * @return \Laravel\Fortify\Contracts\RegisterResponse
      */
     public function store(RegisterRequest $request,
-                          CreatesNewUsers $creator): RegisterResponse
+                          CreatesNewUsers $creator): VerifyEmailViewResponse
     {
         if (config('fortify.lowercase_usernames')) {
             $request->merge([
@@ -63,8 +64,8 @@ class RegisteredUserController extends Controller
 
         event(new Registered($user = $creator->create($request->all())));
 
-        // $this->guard->login($user);
+        $this->guard->login($user);
 
-        return app(RegisterResponse::class);
+        return app(VerifyEmailViewResponse::class);
     }
 }

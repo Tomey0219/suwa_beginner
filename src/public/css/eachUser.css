@@ -1,0 +1,64 @@
+.div_header_btn {
+    display: flex;
+    justify-content: flex-end;
+    align-items: center;
+}
+
+.header_btn {
+    border: none;
+    background-color: white;
+    font-weight: bold;
+    font-size: 18px;
+    margin-left: 20px;
+}
+
+h2 {
+    text-align: center;
+    font-weight: bold;
+}
+
+.daily_attendance_tbl {
+    width: 95%;
+    margin: 40px auto;
+}
+
+.daily_attendance_tbl tr {
+    border-top: 1px solid rgba(168, 168, 168, 1);
+}
+
+.daily_attendance_tbl th {
+    padding: 20px 30px;
+    text-align: center;
+}
+
+.daily_attendance_tbl td {
+    padding: 20px 30px;
+    text-align: center;
+    font-weight: bold;
+}
+
+.paginate_table {
+    margin: auto;
+}
+
+svg.w-5.h-5 {
+    /*paginateメソッドの矢印の大きさ調整のために追加*/
+    width: 20px;
+    height: 20px;
+    color: rgba(35, 132, 207, 1);
+}
+
+.paginate_table td {
+    border: 1px solid gray;
+    padding: 5px 10px;
+}
+
+.paginate_table a {
+    text-decoration: none;
+    color: rgba(35, 132, 207, 1);
+}
+
+.currentpage {
+    background-color: rgba(35, 132, 207, 1);
+    color: white;
+}
