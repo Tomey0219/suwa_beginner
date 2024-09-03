@@ -30,5 +30,11 @@ class Attendance extends Model
         }
     }
 
+    public function scopeUserSearch($query,$user_id){
+        if(!empty($user_id)){
+            $query->where('user_id', $user_id);
+        }
+    }
+
         
 }

@@ -18,6 +18,10 @@
         @csrf
             <button class="header_btn">日付一覧</button>
         </form>
+        <form class="form_header_btn" action="/alluser" method="get">
+        @csrf
+            <button class="header_btn">ユーザ一覧</button>
+        </form>
         <form class="form" action="/logout" method="post">
         @csrf
             <button class="header_btn">ログアウト</button>

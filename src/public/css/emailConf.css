@@ -1,0 +1,40 @@
+h2 {
+    text-align: center;
+    font-weight: bold;
+}
+
+.div_top{
+    background-color: white;
+    padding: 30px;
+}
+
+.p_top{
+    text-align: center;
+}
+
+.div_mid{
+    margin: 0px 50px;
+}
+
+.remail_btn{
+    background-color: white;
+    border: 1px solid blue;
+    border-radius: 3px;
+    padding: 10px 20px;
+    font-weight: bold;
+}
+
+.div_loginlink_btn{
+    width: 30%;
+    margin: 30px auto;
+    text-align: center;
+}
+
+.loginlink_btn{
+    width: 100%;
+    padding: 10px 20px;
+    background-color: blue;
+    color: white;
+    text-align: center;
+    font-weight: bold;
+}

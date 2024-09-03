@@ -1,0 +1,54 @@
+.div_header_btn {
+    display: flex;
+    justify-content: flex-end;
+    align-items: center;
+}
+
+.header_btn {
+    border: none;
+    background-color: white;
+    font-weight: bold;
+    font-size: 18px;
+    margin-left: 20px;
+}
+
+.scroll_box{
+    height: 100%;
+    overflow: auto;
+}
+
+.user_tbl {
+    width: 40%;
+    margin: 10px auto;
+}
+
+.user_tbl tr {
+    border-bottom: 1px solid rgba(168, 168, 168, 1);
+}
+
+.user_tbl th {
+    padding: 20px 30px;
+    text-align: center;
+    background-color: white;
+    position: sticky;
+    top: 0;
+    left: 0;
+}
+
+.user_tbl td {
+    padding: 20px 20px;
+    text-align: center;
+    font-weight: bold;
+}
+
+.user_tbl td:nth-of-type(1){
+    width: 70%;
+}
+
+.attendance_btn{
+    border: none;
+    padding: 10px 30px;
+    background-color: white;
+    font-weight: bold;
+    box-shadow: 3px 3px rgba(168, 168, 168, 1);
+}

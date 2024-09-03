@@ -1,11 +1,11 @@
 @extends('layout.layout')
 
 @section('ttl')
-    DailyPage    
+    EachUserPage    
 @endsection
 
 @section('css')
-    <link rel="stylesheet" href="{{ asset('css/daily.css')}}">
+    <link rel="stylesheet" href="{{ asset('css/eachUser.css')}}">
 @endsection
 
 @section('header_btn')
@@ -30,17 +30,12 @@
 @endsection
 
 @section('content')
-    <div class="div_date_chg">
-        <form class="form_date_chg" action="/attendance" method="post">
-        @csrf
-            <button class="back_date_chg_btn" name="back_btn" type="submit">&lt;</button>
-            <input class="date" type="text" name="current_date" value="{{ $date }}" readonly>
-            <button class="next_date_chg_btn" name="next_btn"  type="submit">&gt;</button>
-        </form>
-    </div>
+
+    <h2>{{ $user_name }}さんの勤怠</h2>
+
     <table class="daily_attendance_tbl">
         <tr>
-            <th>名前</th>
+            <th>日付</th>
             <th>勤務開始</th>
             <th>勤務終了</th>
             <th>休憩時間</th>
@@ -48,7 +43,7 @@
         </tr>
         @foreach ($attendance_array as $att)
         <tr>
-            <td>{{ $att['name'] }}</td>
+            <td>{{ $att['date'] }}</td>
             <td>{{ $att['starttime'] }}</td>
             <td>{{ $att['endtime'] }}</td>
             <td>{{ $att['breaktime'] }}</td>
@@ -57,6 +52,6 @@
         @endforeach
     </table>
 
-    {{ $attendances->links('vendor.pagination.tailwind') }}
-    
+    {{ $attendances->appends(['name'=>$user_name,'id'=>$user_id])->links('vendor.pagination.tailwind') }}
+
 @endsection
