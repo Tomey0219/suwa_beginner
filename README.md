@@ -31,6 +31,7 @@
 #テーブル設計
 
 #ER図
+![ER_diagram](https://github.com/user-attachments/assets/9b23bd58-faa2-4138-b7f8-64a5cdc06a2d)
 
 #環境構築
 
