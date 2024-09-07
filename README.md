@@ -14,7 +14,7 @@
 
 #機能一覧
 　・会員登録
-　・ログイン
+　・ログイン（メール認証）
 　・ログアウト
 　・勤務開始/終了
 　・休憩開始/終了
@@ -30,14 +30,15 @@
 
 #テーブル設計
 
+
 #ER図
 
 #環境構築
 
-　1. docker-compose exec php bash
-　2. composer install
-　3. .env.exampleファイルから.envを作成し、環境変数を変更
-　4. 時間設定を変更・・・app.phpの'timezone'を変更し、"$ php artisan tinker"
-　5. php artisan key:generate
-　6. php artisan migrate
-　7. php artisan db:seed
+　1. docker-compose up -d --build
+　2. docker-compose exec php bash
+　3. composer install
+　4. .env.exampleファイルから.envを作成し、環境変数を変更
+　5. 時間設定を変更・・・app.phpの'timezone'を変更し、"$ php artisan tinker"
+　6. php artisan key:generate
+　7. php artisan migrate
