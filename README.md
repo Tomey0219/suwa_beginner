@@ -1,6 +1,8 @@
 #勤怠管理システム
 　各従業員の勤務開始/終了時間、休憩開始/終了時間を記録するシステム
 
+ ![app_image](https://github.com/user-attachments/assets/12525de4-5154-40b6-827d-942b50ba85f2)
+
 #目的
 　人事評価のため
 
@@ -30,8 +32,11 @@
 
 #テーブル設計
 
+![table_stracture](https://github.com/user-attachments/assets/3cbce79a-e022-4f68-9aec-b53a117c764b)
 
 #ER図
+
+![ER_diagram](https://github.com/user-attachments/assets/9b23bd58-faa2-4138-b7f8-64a5cdc06a2d)
 
 #環境構築
 
